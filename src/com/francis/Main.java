@@ -4,43 +4,40 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	char[] arr = new char[50];
 
 
+        getWord();
 
-	getword();
 
     }
 
-    private static void getword() {
+    private static void getWord() {
         String word;
         Scanner scanner = new Scanner(System.in);
         word = scanner.next();
 
-        char[] arr = word.toCharArray();
-
-        isPalindrome(arr);
-
+        printOut(String.valueOf(isPalindrome(word, 0,word.length() -1)));
 
     }
 
 
+    static boolean isPalindrome(String s, int i, int j){
 
-
-    static void isPalindrome(char[] arr){
-        int flag = 0;
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] != arr[arr.length - i -1]){
-                flag = 1;
-                break;
+        while(i < j){
+            if(s.charAt(i) == s.charAt(j)){
+                i++;
+                j++;
+                return true;
+            } else{
+                return false;
             }
+
         }
 
-        if(flag == 1){
-            printOut("Not a Palindrome");
-        } else {
-            printOut("Is a palindrome");
-        }
+
+        printOut(s + String.valueOf(i) + String.valueOf(j));
+
+        return false;
 
     }
 
