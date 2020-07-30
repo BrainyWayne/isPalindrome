@@ -22,23 +22,17 @@ public class Main {
 
 
     static boolean isPalindrome(String s, int i, int j){
-
+        boolean flag = false;
         while(i < j){
             if(s.charAt(i) == s.charAt(j)){
                 i++;
-                j++;
-                return true;
+                j--;
+                flag = true;
             } else{
-                return false;
+               return isPalindrome(s, ++i, j) || isPalindrome(s,i, --j);
             }
-
         }
-
-
-        printOut(s + String.valueOf(i) + String.valueOf(j));
-
-        return false;
-
+        return flag;
     }
 
     static void printOut(String string){
